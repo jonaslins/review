@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+	User details
+	<br>
+	Name: ${user.name}
+	</br>
+	<br>
+	Email: ${user.email}
+	</br>
+	<span th:text="${user.email}" />
+	<span th:text="#{user.message.default}" />
+	
+</body>
+
+</html>

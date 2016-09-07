@@ -33,7 +33,7 @@ public class IndexController {
 		 * See that our request path is "localhost:8080/{appName}/" which will render welcome.jsp 
 		 * as the page for this pattern
 		*/
-		return "welcome";
+		return "index";
 	}
 
 	@RequestMapping("/foo")
