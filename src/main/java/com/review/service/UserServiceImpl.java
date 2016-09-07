@@ -1,11 +1,12 @@
-package org.project.service;
+package com.review.service;
 
 import javax.transaction.Transactional;
 
-import org.project.model.User;
-import org.project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.review.model.User;
+import com.review.repository.UserRepository;
 
 @Component("userService")
 @Transactional

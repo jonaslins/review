@@ -1,4 +1,4 @@
-package org.project.model;
+package com.review.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

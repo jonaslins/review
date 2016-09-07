@@ -1,6 +1,6 @@
-package org.project.service;
+package com.review.service;
 
-import org.project.model.User;
+import com.review.model.User;
 
 public interface UserService {
 	

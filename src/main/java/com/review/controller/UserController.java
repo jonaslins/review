@@ -1,13 +1,14 @@
-package org.project.controller;
+package com.review.controller;
 
 import java.util.Map;
 
-import org.project.model.User;
-import org.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.review.model.User;
+import com.review.service.UserService;
 
 @Controller
 @RequestMapping("/user") //Root request mapping -> localhost:8080/{appName}/user

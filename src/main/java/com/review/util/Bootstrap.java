@@ -1,9 +1,10 @@
-package org.project.util;
+package com.review.util;
 
-import org.project.model.User;
-import org.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.review.model.User;
+import com.review.service.UserService;
 
 @Component
 public class Bootstrap {

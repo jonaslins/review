@@ -1,9 +1,10 @@
-package org.project.repository;
+package com.review.repository;
 
 import javax.transaction.Transactional;
 
-import org.project.model.User;
 import org.springframework.data.repository.CrudRepository;
+
+import com.review.model.User;
 
 @Transactional
 public interface UserRepository extends CrudRepository<User, Long> {
