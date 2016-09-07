@@ -6,7 +6,7 @@
 	<groupId>com.review</groupId>
 	<artifactId>review</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+<!-- 	<packaging>war</packaging> -->
 
 	<name>review</name>
 	<description>Review Web Application</description>
