@@ -1,32 +1,35 @@
 package com.review.controller;
 
-import java.util.Date;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.review.model.User;
-import com.review.service.UserService;
+import com.review.model.Fachada;
+import com.review.model.entity.Usuario;
 
 @Controller
 public class IndexController {
 	
 	@Autowired
-	private UserService userService;
+	private Fachada fachada;
+	
+	@Autowired
+	private HttpSession session;
 	
 	private String message = "Hello World";
 
 	@RequestMapping("/")
 	public String welcome(Map<String, Object> model) {
 		
-		User user = userService.getUserByName("Jonas");
-		
-		model.put("time", new Date());
-		model.put("message", this.message);		
-		model.put("user", user);
-		
+
+		Usuario usuario  = fachada.autenticarRedeSocial("facebook");
+//		
+//		session.setAttribute(name, value);
+//		model.put("usuario", usuario);
 		/**
 		 * View that will be rendered after the setup we made above
 		 * In our case /welcome.jsp
@@ -35,12 +38,5 @@ public class IndexController {
 		*/
 		return "index";
 	}
-
-	@RequestMapping("/foo")
-	public void foo(Map<String, Object> model) {
-		
-		model.put("foo", "This is a test sample");
-		
-	}
-
+	
 }

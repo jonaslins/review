@@ -1,16 +1,21 @@
-package com.review.model;
+package com.review.model.entity;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class User {
+public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="usuario_id")
 	private long id;	
 
 	@Column(nullable = false)
@@ -18,15 +23,18 @@ public class User {
 	
 	@Column(nullable = false)
 	private String email;
+	
+	@OneToMany(targetEntity=Review.class, mappedBy="usuario", fetch=FetchType.LAZY)
+	private List<Review> reviewList;
 
-	public User() {
+	public Usuario() {
 	}
 
-	public User(long id) {
+	public Usuario(long id) {
 		this.id = id;
 	}
 
-	public User(String name, String email) {
+	public Usuario(String name, String email) {
 		this.name = name;
 		this.email = email;
 	}

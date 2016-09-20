@@ -43,9 +43,23 @@
 			</h1>
 			<div class="row center">
 				<h5 class="header col s12 light">
-					User ${user.name} Email: ${user.email} message:
-					<s:message code="user.message.default" />
-				</h5>
+					<c:choose>
+					    <c:when test="${empty facebookProfile}">
+					        <form action="/connect/facebook" method="POST">
+					        	<input type="hidden" name="scope" value="email" />
+					        	<input type="hidden" name="scope" value="public_profile" />
+								<div class="formInfo">
+									<p>You aren't connected to Facebook yet. Click the button to connect this application with your Facebook account.</p>
+								</div>
+								<p><button type="submit">Connect to Facebook</button></p>
+							</form>
+					    </c:when>
+					    <c:otherwise>
+					        User ${facebookProfile.name} Email: ${facebookProfile.email} Gender: ${facebookProfile.gender} message:
+							<s:message code="user.message.default" />
+					    </c:otherwise>
+					</c:choose>
+				</h5>				
 			</div>
 			
 			<div class="container">
