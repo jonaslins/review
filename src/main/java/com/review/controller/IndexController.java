@@ -17,19 +17,11 @@ public class IndexController {
 	@Autowired
 	private Fachada fachada;
 	
-	@Autowired
-	private HttpSession session;
-	
 	private String message = "Hello World";
 
 	@RequestMapping("/")
 	public String welcome(Map<String, Object> model) {
-		
-
-		Usuario usuario  = fachada.autenticarRedeSocial("facebook");
-//		
-//		session.setAttribute(name, value);
-//		model.put("usuario", usuario);
+	
 		/**
 		 * View that will be rendered after the setup we made above
 		 * In our case /welcome.jsp

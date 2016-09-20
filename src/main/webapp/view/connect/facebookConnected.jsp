@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<title>Hello Facebook</title>
-		<meta http-equiv="refresh" content="1;url=/">
+		<meta http-equiv="refresh" content="1;url=/login">
         <script type="text/javascript">
-            window.location.href = "/"
+            window.location.href = "/login"
         </script>
 	</head>
 	<body>

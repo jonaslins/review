@@ -44,7 +44,7 @@
 			<div class="row center">
 				<h5 class="header col s12 light">
 					<c:choose>
-					    <c:when test="${empty facebookProfile}">
+					    <c:when test="${empty sessionScope.sessionUser}">
 					        <form action="/connect/facebook" method="POST">
 					        	<input type="hidden" name="scope" value="email" />
 					        	<input type="hidden" name="scope" value="public_profile" />
@@ -55,7 +55,7 @@
 							</form>
 					    </c:when>
 					    <c:otherwise>
-					        User ${facebookProfile.name} Email: ${facebookProfile.email} Gender: ${facebookProfile.gender} message:
+					        User ${sessionScope.sessionUser.name} Email: ${sessionScope.sessionUser.email} message:
 							<s:message code="user.message.default" />
 					    </c:otherwise>
 					</c:choose>
