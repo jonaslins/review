@@ -66,6 +66,12 @@
 					    <c:otherwise>
 					        User ${sessionScope.sessionUser.name} Email: ${sessionScope.sessionUser.email} message:
 							<s:message code="user.message.default" />
+							<form action="/logout" method="DELETE">
+							<input type="hidden" name="scope" value="email" />
+					        	<input type="hidden" name="scope" value="public_profile" />
+								<p><button type="submit">Disconnect to Facebook</button></p>
+							</form>
+							
 					    </c:otherwise>
 					</c:choose>
 				</h5>				

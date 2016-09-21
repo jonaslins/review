@@ -35,6 +35,7 @@ public class AuthenticationController {
 	@RequestMapping("/logout")
 	public String logout(Map<String, Object> model) {
 		//TODO
+		session.invalidate();
 		return "redirect:/";
 	}
 
