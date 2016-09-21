@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.review.model.entity.Usuario;
-import com.review.model.service.UserService;
+import com.review.model.cadastro.CadastroUsuario;
+import com.review.model.entidade.Usuario;
 
 @Controller
 @RequestMapping("/user") //Root request mapping -> localhost:8080/{appName}/user
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private CadastroUsuario userService;
 	
 	@Autowired
 	private HttpSession session;

@@ -3,10 +3,8 @@ package com.review.util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.review.model.Fachada;
-import com.review.model.entity.Produto;
-import com.review.model.entity.Usuario;
-import com.review.model.service.UserService;
+import com.review.model.entidade.Produto;
+import com.review.model.fachada.Fachada;
 
 @Component
 public class Bootstrap {
@@ -16,8 +14,8 @@ public class Bootstrap {
 
 	public void setup() {
 		
-		fachada.criarProduto(new Produto("Câmera Cannon H172", "A camera fotográfica mais tecnológica do mundo"));
-		fachada.criarProduto(new Produto("Moto G", "Moto G1 - O Melhor"));
+		fachada.cadastrarProduto(new Produto("Câmera Cannon H172", "A camera fotográfica mais tecnológica do mundo"));
+		fachada.cadastrarProduto(new Produto("Moto G", "Moto G1 - O Melhor"));
 
 //		Usuario user = userService.getUserByName("Jonas");
 //

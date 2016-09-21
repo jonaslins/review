@@ -25,7 +25,16 @@
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="#" class="brand-logo"><s:message code="app.title"/></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="#"> <s:message code="login.title" /></a></li>
+				<li><a href="#">
+					<c:choose> 
+						<c:when test="${empty sessionScope.sessionUser}">
+							<s:message code="login.title" />
+						</c:when>
+						<c:otherwise>
+							<s:message code="logout.title" />
+					    </c:otherwise>	
+				    </c:choose>				
+				</a></li>
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
@@ -62,13 +71,6 @@
 				</h5>				
 			</div>
 			
-			<div class="container">
-				<div class="input-field">
-				  <i class="material-icons prefix">search</i>
-		          <input type="text" id="autocomplete-input" class="autocomplete">
-		          <label for="autocomplete-input">Procure aqui o produto que você deseja</label>
-		        </div>
-			</div>
 			<br>
 			<br>
 

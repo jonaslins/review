@@ -1,4 +1,4 @@
-package com.review.model.entity;
+package com.review.model.entidade;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class Usuario {
 	private long id;	
 
 	@Column(nullable = false)
-	private String name;
+	private String nome;
 	
 	@Column(nullable = false)
 	private String email;
@@ -35,7 +35,7 @@ public class Usuario {
 	}
 
 	public Usuario(String name, String email) {
-		this.name = name;
+		this.nome = name;
 		this.email = email;
 	}
 
@@ -56,11 +56,11 @@ public class Usuario {
 	}
 
 	public String getName() {
-		return name;
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String name) {
+		this.nome = name;
 	}
 	
 }

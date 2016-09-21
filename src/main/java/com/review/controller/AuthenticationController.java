@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.review.model.Fachada;
-import com.review.model.entity.Usuario;
+import com.review.model.entidade.Usuario;
+import com.review.model.fachada.Fachada;
 
 @Controller
-public class AuthenticationControler {
+public class AuthenticationController {
 	
 	@Autowired
 	private Fachada fachada;
@@ -25,7 +25,7 @@ public class AuthenticationControler {
 	public String login(Map<String, Object> model) {
 		Usuario usuario  = fachada.autenticarRedeSocial("facebook");                 
 		if(usuario!=null){
-			System.out.println("yey");
+			//Usuario cancelou ou nao autenticou/aceitou
 		}		
 		session.setAttribute("sessionUser", usuario);
 		model.put("usuario", usuario);
@@ -34,6 +34,7 @@ public class AuthenticationControler {
 	
 	@RequestMapping("/logout")
 	public String logout(Map<String, Object> model) {
+		//TODO
 		return "redirect:/";
 	}
 

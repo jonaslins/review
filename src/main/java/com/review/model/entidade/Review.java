@@ -1,4 +1,4 @@
-package com.review.model.entity;
+package com.review.model.entidade;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -70,6 +70,5 @@ public class Review {
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
-	
 
 }

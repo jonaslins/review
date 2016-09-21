@@ -1,6 +1,6 @@
 package com.review.autenticador;
 
-import com.review.model.entity.Usuario;
+import com.review.model.entidade.Usuario;
 
 public interface IAutenticador {
 

@@ -70,6 +70,10 @@
 			<artifactId>jgroups</artifactId>
 			<version>3.6.9.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jta-narayana</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

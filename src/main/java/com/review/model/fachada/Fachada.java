@@ -1,4 +1,4 @@
-package com.review.model;
+package com.review.model.fachada;
 
 import java.util.List;
 
@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.review.model.controller.ControladorProduto;
-import com.review.model.controller.ControladorReview;
-import com.review.model.controller.ControladorUsuario;
-import com.review.model.entity.Produto;
-import com.review.model.entity.Review;
-import com.review.model.entity.Usuario;
+import com.review.model.controle.ControladorProduto;
+import com.review.model.controle.ControladorReview;
+import com.review.model.controle.ControladorUsuario;
+import com.review.model.entidade.Produto;
+import com.review.model.entidade.Review;
+import com.review.model.entidade.Usuario;
 
 @Component
 @Scope(scopeName = "singleton")
@@ -26,16 +26,16 @@ public class Fachada {
 	@Autowired
 	private ControladorReview controladorReview;
 	
-	public Produto criarProduto(Produto produto){
-		return controladorProduto.criarProduto(produto);
+	public Produto cadastrarProduto(Produto produto){
+		return controladorProduto.cadastrar(produto);
 	}
 	
 	public Produto visualizarProduto(Produto produto){
-		return controladorProduto.visualizarProduto(produto);
+		return controladorProduto.visualizar(produto);
 	}
 	
 	public List<Produto> listarProdutos(){
-		return controladorProduto.listarProdutos();
+		return controladorProduto.listar();
 	}
 	
 	public Review adicionarReview(Review review){

@@ -1,8 +1,8 @@
-package com.review.model.controller;
+package com.review.model.controle;
 
 import org.springframework.stereotype.Component;
 
-import com.review.model.entity.Review;
+import com.review.model.entidade.Review;
 
 @Component
 public class ControladorReview {

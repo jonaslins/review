@@ -1,4 +1,4 @@
-package com.review.model.entity;
+package com.review.model.entidade;
 
 import java.util.List;
 
@@ -26,15 +26,12 @@ public class Produto {
 	
 	@OneToMany(targetEntity=Review.class, mappedBy="produto", fetch=FetchType.LAZY)
 	private List<Review> reviewList;
-		
 
 	public Produto(String nome, String descricao) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
 	}
-
-
 
 	public String getNome() {
 		return nome;
@@ -52,6 +49,20 @@ public class Produto {
 		this.descricao = descricao;
 	}
 	
+	public long getId() {
+		return id;
+	}
 	
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public List<Review> getReviewList() {
+		return reviewList;
+	}
+	
+	public void setReviewList(List<Review> reviewList) {
+		this.reviewList = reviewList;
+	}
 	
 }

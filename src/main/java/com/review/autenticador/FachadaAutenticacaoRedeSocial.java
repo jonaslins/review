@@ -3,7 +3,7 @@ package com.review.autenticador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.review.model.entity.Usuario;
+import com.review.model.entidade.Usuario;
 
 @Component("autenticadorRedeSocial")
 public class FachadaAutenticacaoRedeSocial implements ISubsistemaAutenticacaoRedeSocial{

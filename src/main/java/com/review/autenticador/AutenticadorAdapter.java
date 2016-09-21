@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.facebook.api.User;
 import org.springframework.stereotype.Component;
 
-import com.review.model.entity.Usuario;
+import com.review.model.entidade.Usuario;
 
 @Component("autenticadorAdapter")
 public class AutenticadorAdapter implements IAutenticador {
