@@ -2,6 +2,7 @@ package com.review.autenticador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.WebRequest;
 
 import com.review.model.entidade.Usuario;
 
@@ -12,8 +13,8 @@ public class FachadaAutenticacaoRedeSocial implements ISubsistemaAutenticacaoRed
 	private IAutenticador autenticador;
 	
 	@Override
-	public Usuario autenticar(String redeSocial) {
-		return autenticador.autenticar(redeSocial);
+	public Usuario autenticar(WebRequest request, String redeSocial) {
+		return autenticador.autenticar(request, redeSocial);
 	}
 
 }

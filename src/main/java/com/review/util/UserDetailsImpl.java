@@ -5,7 +5,6 @@ import java.util.HashSet;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.social.facebook.api.User;
 import org.springframework.social.security.SocialUserDetails;
 
 import com.review.model.entidade.Usuario;
