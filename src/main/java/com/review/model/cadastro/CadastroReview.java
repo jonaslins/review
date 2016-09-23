@@ -2,13 +2,9 @@ package com.review.model.cadastro;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import com.review.model.entidade.Usuario;
-import com.review.model.repositorio.RepositorioUsuarioBDR;
-
-@Component
+@Service
 @Transactional
 public class CadastroReview {
 	

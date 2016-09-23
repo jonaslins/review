@@ -5,12 +5,12 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.review.model.entidade.Produto;
 import com.review.model.repositorio.RepositorioProdutoBDR;
 
-@Component
+@Service
 @Transactional
 public class CadastroProduto {
 

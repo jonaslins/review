@@ -3,6 +3,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <html lang="en">
@@ -25,16 +26,24 @@
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="#" class="brand-logo"><s:message code="app.title"/></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="#">
-					<c:choose> 
-						<c:when test="${empty sessionScope.sessionUser}">
-							<s:message code="login.title" />
-						</c:when>
-						<c:otherwise>
-							<s:message code="logout.title" />
-					    </c:otherwise>	
-				    </c:choose>				
-				</a></li>
+				
+				<sec:authorize access="isAnonymous()">
+				   	<f:form id="facebookConnectForm" style="display: none" action="/auth/facebook?scope=email,public_profile" method="POST">
+					</f:form>
+			        <a class="btn btn-link" href="#" onclick="document.getElementById('facebookConnectForm').submit()"><s:message code="login.title" /></a>
+		       	</sec:authorize>
+	         
+	          	<sec:authorize access="isAuthenticated()">
+	          		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                      <span class="glyphicon glyphicon-user"></span>
+	                      <sec:authentication property="principal.user.name" />
+	                </a>
+		          	<f:form style="display: none" id="facebookDisconnectForm" action="/connect/facebook" method="delete">
+		          	</f:form>
+		         	<a class="btn btn-link" href="#" onclick="document.getElementById('facebookDisconnectForm').submit()"><s:message code="logout.title" /></a>
+	          	</sec:authorize>					
+				
+				
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
@@ -51,30 +60,23 @@
 				<s:message code="app.title" />
 			</h1>
 			<div class="row center">
-				<h5 class="header col s12 light">
-					<c:choose>
-					    <c:when test="${empty sessionScope.sessionUser}">
-					        <form action="/connect/facebook" method="POST">
-					        	<input type="hidden" name="scope" value="email" />
-					        	<input type="hidden" name="scope" value="public_profile" />
-								<div class="formInfo">
-									<p>You aren't connected to Facebook yet. Click the button to connect this application with your Facebook account.</p>
-								</div>
-								<p><button type="submit">Connect to Facebook</button></p>
-							</form>
-					    </c:when>
-					    <c:otherwise>
-					        User ${sessionScope.sessionUser.name} Email: ${sessionScope.sessionUser.email} message:
-							<s:message code="user.message.default" />
-							<form action="/logout" method="DELETE">
-							<input type="hidden" name="scope" value="email" />
-					        	<input type="hidden" name="scope" value="public_profile" />
-								<p><button type="submit">Disconnect to Facebook</button></p>
-							</form>
-							
-					    </c:otherwise>
-					</c:choose>
-				</h5>				
+		    <sec:authorize access="isAnonymous()">
+		      
+	
+			   	<f:form id="facebookConnectForm" style="display: none" action="/auth/facebook?scope=email,public_profile" method="POST">
+				</f:form>
+		        <a class="btn btn-link" href="#" onclick="document.getElementById('facebookConnectForm').submit()">Connect to Facebook</a>
+	       	</sec:authorize>
+         
+          	<sec:authorize access="isAuthenticated()">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-user"></span>
+                      <sec:authentication property="principal.user.name" />
+                </a>
+	          	<f:form style="display: none" id="facebookDisconnectForm" action="/connect/facebook" method="delete">
+	          	</f:form>
+	         	<a class="btn btn-link" href="#" onclick="document.getElementById('facebookDisconnectForm').submit()">Disconnect from Facebook</a>
+          	</sec:authorize>
 			</div>
 			
 			<br>
