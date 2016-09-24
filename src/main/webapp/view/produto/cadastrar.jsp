@@ -1,7 +1,7 @@
 <%@include file="../includes/header.jsp"%>
 
 
-<f:form modelAttribute="produto" class="form-horizontal" role="form" action="/produto/cadastrar">
+<f:form modelAttribute="produto" class="form-horizontal" role="form" action="${contextPath}/produto/cadastrar">
 
 
 				<h2 class="header">Cadastrar Produto</h2>

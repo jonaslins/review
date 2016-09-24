@@ -28,15 +28,15 @@
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="#" class="brand-logo"><s:message code="app.title"/></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="produto/listar"><i class="material-icons left">view_list</i>Produtos</a></li>
+				<li><a href="${contextPath}/produto/listar"><i class="material-icons left">view_list</i>Produtos</a></li>
 				
 				<sec:authorize access="isAnonymous()">
-				   	<f:form id="facebookConnectForm" style="display: none" action="/auth/facebook?scope=email,public_profile" method="POST">
+				   	<f:form id="facebookConnectForm" style="display: none" action="${contextPath}/auth/facebook?scope=email,public_profile" method="POST">
 					</f:form>
 					<li>
 					<a href="#" onclick="document.getElementById('facebookConnectForm').submit()">
 	          		<div class="chip">
-					    <img src="../images/fb_icon.png"/>
+					    <img src="${contextPath}/images/fb_icon.png"/>
 					    <span></span>
 			        	<s:message code="login.title" />
 			    	</div>
@@ -47,11 +47,11 @@
 	          	<sec:authorize access="isAuthenticated()">
 	          		<li>
 	          		<div class="chip">
-					    <img src="../images/fb_icon.png"/>
+					    <img src="${contextPath}/images/fb_icon.png"/>
 					    <sec:authentication property="principal.user.name" />
 			    	</div>
 	          		</li>
-		          	<f:form style="display: none" id="facebookDisconnectForm" action="/connect/facebook" method="delete">
+		          	<f:form style="display: none" id="facebookDisconnectForm" action="${contextPath}/connect/facebook" method="delete">
 		          	</f:form>
 		         	<li><a  href="#" onclick="document.getElementById('facebookDisconnectForm').submit()"><s:message code="logout.title" /></a></li>
 	          	</sec:authorize>					
