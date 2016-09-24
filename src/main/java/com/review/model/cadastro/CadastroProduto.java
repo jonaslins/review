@@ -28,5 +28,13 @@ public class CadastroProduto {
 	public List<Produto> listar(){
 		return repositorioProdutoBDR.findAll();
 	}
+
+	public Produto atualizar(Produto produto) {
+		return repositorioProdutoBDR.save(produto);
+	}
+
+	public void remover(Produto produto) {
+		repositorioProdutoBDR.delete(produto);
+	}
 	
 }

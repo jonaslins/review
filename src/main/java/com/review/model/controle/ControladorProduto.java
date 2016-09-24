@@ -18,13 +18,20 @@ public class ControladorProduto {
 		return cadastroProduto.cadastrar(produto);		
 	}
 
-	public Produto visualizar(Produto produto) {
-		return null;
+	public Produto buscar(Produto produto) {
+		return cadastroProduto.buscar(produto);
 	}
 
 	public List<Produto> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return cadastroProduto.listar();
+	}
+
+	public Produto atualizar(Produto produto) {
+		return cadastroProduto.atualizar(produto);
+	}
+
+	public void remover(Produto produto) {
+		cadastroProduto.remover(produto);
 	}
 
 }

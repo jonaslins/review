@@ -70,5 +70,13 @@ public class Review {
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
 
 }

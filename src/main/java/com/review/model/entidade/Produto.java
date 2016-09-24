@@ -26,6 +26,15 @@ public class Produto {
 	
 	@OneToMany(targetEntity=Review.class, mappedBy="produto", fetch=FetchType.LAZY)
 	private List<Review> reviewList;
+	
+	public Produto() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Produto(long id){
+		super();
+		this.id = id;
+	}
 
 	public Produto(String nome, String descricao) {
 		super();

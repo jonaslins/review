@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 
@@ -20,18 +21,17 @@ public class AuthenticationController {
 
 	@RequestMapping("/signup")
 	public String login(Map<String, Object> model,  WebRequest request) {
-//OLD without security authentication
+//		OLD without security authentication
 //		if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
 //            return "redirect:/connect/facebook";
-//        }		
-		
+//        }			
 		fachada.autenticarRedeSocial(request, "facebook");                 
 
 		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/signin", params = "logout")
-	public String logout(Map<String, Object> model, HttpServletRequest request) throws ServletException {
+	public String logout(Model model, HttpServletRequest request) throws ServletException {
 		return "redirect:/";
 	}
 

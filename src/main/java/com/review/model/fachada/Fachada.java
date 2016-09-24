@@ -31,16 +31,36 @@ public class Fachada {
 		return controladorProduto.cadastrar(produto);
 	}
 	
-	public Produto visualizarProduto(Produto produto){
-		return controladorProduto.visualizar(produto);
+	public Produto buscarProduto(Produto produto){
+		return controladorProduto.buscar(produto);
 	}
 	
 	public List<Produto> listarProdutos(){
 		return controladorProduto.listar();
 	}
 	
+	public Produto atualizarProduto(Produto produto){
+		return controladorProduto.atualizar(produto);
+	}
+	
+	public void removerProduto(Produto produto){
+		controladorProduto.remover(produto);
+	}
+	
 	public Review adicionarReview(Review review){
-		return controladorReview.adicionarReview(review);
+		return controladorReview.adicionar(review);
+	}
+	
+	public Review atualizarReview(Review review){
+		return controladorReview.atualizar(review);
+	}
+	
+	public void removerReview(Review review){
+		controladorReview.remover(review);
+	}
+	
+	public Review buscarReview(Review review){
+		return controladorReview.buscar(review);
 	}
 	
 	public Usuario autenticarRedeSocial(WebRequest request, String redeSocial){
