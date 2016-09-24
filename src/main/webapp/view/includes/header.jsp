@@ -28,7 +28,7 @@
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="#" class="brand-logo"><s:message code="app.title"/></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="produto/listar">Produtos</a></li>
+				<li><a href="produto/listar"><i class="material-icons left">view_list</i>Produtos</a></li>
 				
 				<sec:authorize access="isAnonymous()">
 				   	<f:form id="facebookConnectForm" style="display: none" action="/auth/facebook?scope=email,public_profile" method="POST">
