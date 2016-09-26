@@ -18,9 +18,13 @@
 	        </tr>
         </tbody>
     </table>
+    <f:form modelAttribute="produto" class="form-horizontal" role="form" action="${contextPath}/produto/atualizar/${produto.id}" method="POST" >
+		<button type="submit" class="btn btn-primary">Atualizar<i class="material-icons left">edit</i></button>
+	</f:form>
     <f:form modelAttribute="produto" class="form-horizontal" role="form" action="${contextPath}/produto/remover/${produto.id}" method="POST" >
 		<button type="submit" class="btn btn-primary">Remover<i class="material-icons left">delete</i></button>
 	</f:form>
+	
 </div>
 
 
