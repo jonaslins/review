@@ -26,7 +26,7 @@
 
 	<nav class="light-blue lighten-1" role="navigation">
 		<div class="nav-wrapper container">
-			<a id="logo-container" href="#" class="brand-logo"><s:message code="app.title"/></a>
+			<a id="logo-container" href="${contextPath}/" class="brand-logo"><s:message code="app.title"/></a>
 			<ul class="right hide-on-med-and-down">
 				<li><a href="${contextPath}/produto/listar"><i class="material-icons left">view_list</i>Produtos</a></li>
 				

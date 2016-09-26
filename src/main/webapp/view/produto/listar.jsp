@@ -10,7 +10,7 @@
 
           <c:forEach items = "${produtos}" var="produto">
           <tr>
-             <td>${produto.nome}</td>
+             <td><a  href="${contextPath}/produto/visualizar/${produto.id}">${produto.nome}</a></td>
              <td>${produto.descricao}</td>
           </tr>
           </c:forEach>
