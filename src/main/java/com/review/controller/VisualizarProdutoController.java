@@ -25,9 +25,8 @@ public class VisualizarProdutoController {
 			
 			return "/produto/visualizar"; 
 		}
-
 		
-		return "/produto/cadastrar";
+		return "redirect:/produto/listar";
 	}
 	
 }

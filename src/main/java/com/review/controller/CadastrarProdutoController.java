@@ -28,7 +28,7 @@ public class CadastrarProdutoController {
 			return "redirect:/produto/visualizar/"+id; 
 		}
 
-		return "/produto/cadastrar";
+		return "redirect:/produto/cadastrar";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)

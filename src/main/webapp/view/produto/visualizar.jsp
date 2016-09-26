@@ -18,6 +18,10 @@
 	        </tr>
         </tbody>
     </table>
+    <f:form modelAttribute="produto" class="form-horizontal" role="form" action="${contextPath}/produto/remover/${produto.id}" method="POST" >
+		<button type="submit" class="btn btn-primary">Remover<i class="material-icons left">delete</i></button>
+	</f:form>
 </div>
+
 
 <%@include file="../includes/footer.jsp"%>
