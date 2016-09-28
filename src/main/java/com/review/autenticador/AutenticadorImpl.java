@@ -10,17 +10,16 @@ import com.review.model.entidade.Usuario;
 public class AutenticadorImpl implements IAutenticador{
 	
 	@Autowired
-	AutenticadorAdapter autenticadorAdapter;
+	AutenticadorFacebookAdapter autenticadorAdapter;
 	
 	@Override
 	public Usuario autenticar(WebRequest request, String redeSocial) {
 		
-		
-		if(redeSocial==null){
-			//Aqui poderia ser o sistema de autenticação default, por exmeplo
-			return new Usuario("Default User", "defaultUser@default.com");
+		if(redeSocial.equalsIgnoreCase("facebook")){
+			return autenticadorAdapter.autenticar(request, redeSocial);
 		}		
-		return autenticadorAdapter.autenticar(request, redeSocial);
+		//Aqui poderia ser o sistema de autenticação default, por exmeplo
+		return new Usuario("Default User", "defaultUser@default.com"); 
 	}
 
 }
