@@ -1,18 +1,38 @@
 package com.review.model.repositorio;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.review.model.entidade.Produto;
+import com.review.model.repositorio.jpa.JpaRepositoryProduto;
 
-@Transactional
-public interface RepositorioProdutoBDR extends JpaRepository<Produto, Long> {
+@Component("repositorioProduto")
+public class RepositorioProdutoBDR implements IRepositorioProduto {
+	
+	@Autowired
+	private JpaRepositoryProduto jpaRepositoryProduto;
+	
+	public Produto cadastrar(Produto produto) {	
+		return jpaRepositoryProduto.save(produto);
+	}
+	
+	public Produto buscar(Produto produto){
+		return jpaRepositoryProduto.findOne(produto.getId());
+	}
+	
+	public List<Produto> listar(){
+		return jpaRepositoryProduto.findAll();
+	}
 
-  /**
-   * This method will find an User instance in the database by its name.
-   * Note that this method is not implemented and its working code will be
-   * automagically generated from its signature by Spring Data JPA.
-   */
+	public Produto atualizar(Produto produto) {
+		return jpaRepositoryProduto.save(produto);
+	}
+
+	public void remover(Produto produto) {
+		jpaRepositoryProduto.delete(produto);
+	}
+	
 
 }

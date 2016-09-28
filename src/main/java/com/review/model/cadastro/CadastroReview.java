@@ -6,32 +6,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.review.model.entidade.Review;
-import com.review.model.repositorio.RepositorioReviewBDR;
+import com.review.model.repositorio.IRepositorioReview;
 
 @Service
 @Transactional
 public class CadastroReview {
 	
 	@Autowired
-	private RepositorioReviewBDR repositorioReviewBDR;
+	private IRepositorioReview repositorioReview;
 
 	public Review adicionar(Review review) {
-		return repositorioReviewBDR.save(review);
+		return repositorioReview.adicionar(review);
 	}
 
 	public Review atualizar(Review review) {
 		// TODO Auto-generated method stub
-		return repositorioReviewBDR.save(review);
+		return repositorioReview.atualizar(review);
 	}
 
 	public void remover(Review review) {
 		// TODO Auto-generated method stub
-		repositorioReviewBDR.delete(review);
+		repositorioReview.remover(review);
 	}
 
 	public Review buscar(Review review) {
 		// TODO Auto-generated method stub
-		return repositorioReviewBDR.findOne(review.getId());
+		return repositorioReview.buscar(review);
 	}
 	
 	

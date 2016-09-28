@@ -11,7 +11,7 @@ import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Service;
 
 import com.review.model.entidade.Usuario;
-import com.review.model.repositorio.RepositorioUsuarioBDR;
+import com.review.model.repositorio.IRepositorioUsuario;
 import com.review.util.UserDetailsImpl;
 
 @Service
@@ -19,20 +19,19 @@ import com.review.util.UserDetailsImpl;
 public class CadastroUsuario implements UserDetailsService, SocialUserDetailsService{
 	
 	@Autowired
-	private RepositorioUsuarioBDR userRepository;
+	private IRepositorioUsuario repositorioUsuario;
 
 	public Usuario buscar(Usuario usuario) {
-		return userRepository.findByEmail(usuario.getEmail());
+		return repositorioUsuario.buscar(usuario);
 	}
 
-	public void cadastrar(Usuario usuario) {
-		userRepository.save(usuario);	
+	public Usuario cadastrar(Usuario usuario) {
+		return repositorioUsuario.cadastrar(usuario);	
 	}
-
 	
 	@Override
 	public SocialUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario usuario = userRepository.findByEmail(username);
+		Usuario usuario = repositorioUsuario.buscar(new Usuario(username));
 		return new UserDetailsImpl(usuario);		
 	}
 

@@ -23,7 +23,7 @@ public class ListarProdutosController {
 		List<Produto> produtos = fachada.listarProdutos();
 		
 		if(produtos.size() == 0){
-			return "redirect:/index"; 
+			return "redirect:/"; 
 		}
 
 		model.addAttribute("produtos", produtos);

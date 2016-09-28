@@ -38,6 +38,10 @@ public class Usuario {
 		this.nome = name;
 		this.email = email;
 	}
+	
+	public Usuario(String email) {
+		this.email = email;
+	}
 
 	public long getId() {
 		return id;
