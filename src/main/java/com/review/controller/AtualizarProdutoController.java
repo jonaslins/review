@@ -23,7 +23,6 @@ public class AtualizarProdutoController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String atualizarProduto(Model model, @ModelAttribute("produto") Produto produto) {
 		
-		System.out.println(produto.getId());
 		Produto produtoAtualizado = fachada.atualizarProduto(produto);
 		if(produtoAtualizado!=null){
  
@@ -44,16 +43,8 @@ public class AtualizarProdutoController {
 			
 			return "/produto/atualizar"; 
 		}
-
 		
 		return "/produto/cadastrar";
 	}
 	
-//	@RequestMapping(method=RequestMethod.GET)
-//	public ModelAndView index(){
-//		
-//		Produto produtoBuscado = fachada.buscarProduto(new Produto(2));
-//		
-//		return new ModelAndView("produto/atualizar/", "produto",  produtoBuscado);
-//	}
 }

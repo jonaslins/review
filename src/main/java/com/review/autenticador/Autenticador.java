@@ -7,7 +7,7 @@ import org.springframework.web.context.request.WebRequest;
 import com.review.model.entidade.Usuario;
 
 @Component("autenticador")
-public class AutenticadorImpl implements IAutenticador{
+public class Autenticador implements IAutenticador{
 	
 	@Autowired
 	AutenticadorFacebookAdapter autenticadorAdapter;
