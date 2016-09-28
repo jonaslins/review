@@ -14,7 +14,7 @@ import org.springframework.web.context.request.WebRequest;
 import com.review.model.fachada.Fachada;
 
 @Controller
-public class AuthenticationController {
+public class AutenticadorController {
 	
 	@Autowired
 	private Fachada fachada;

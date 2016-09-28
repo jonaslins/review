@@ -11,7 +11,7 @@ import com.review.model.entidade.Usuario;
 public class AutenticadorFacebookAdapter implements IAutenticador {
 
 	@Autowired
-	private FacebookAutenticator facebookAutenticator;
+	private AutenticadorFacebook facebookAutenticator;
 
 	@Override
 	public Usuario autenticar(WebRequest request, String redeSocial) {

@@ -16,7 +16,7 @@ import com.review.model.entidade.Usuario;
 import com.review.util.UserDetailsImpl;
 
 @Component
-public class FacebookAutenticator {
+public class AutenticadorFacebook {
 	
 	@Autowired
 	private Facebook facebook;
