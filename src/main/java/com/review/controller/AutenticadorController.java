@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 
+import com.review.model.entidade.Usuario;
 import com.review.model.fachada.Fachada;
 
 @Controller
@@ -24,9 +25,12 @@ public class AutenticadorController {
 //		OLD without security authentication
 //		if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
 //            return "redirect:/connect/facebook";
-//        }			
-		fachada.autenticarRedeSocial(request, "facebook");                 
+//        }
+		
+		Usuario currentUser = fachada.autenticarRedeSocial(request, "facebook");                 
 
+		fachada.usuarioLogado = currentUser;
+		
 		return "redirect:/";
 	}
 	

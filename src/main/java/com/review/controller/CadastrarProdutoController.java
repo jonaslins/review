@@ -21,14 +21,18 @@ public class CadastrarProdutoController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String cadastrarProduto(Model model, @ModelAttribute("produto") Produto produto) {
 		
-		Produto produtoCadastrado = fachada.cadastrarProduto(produto);
-		
-		if(produtoCadastrado!=null){
-			int id = (int) produtoCadastrado.getId(); 
-			return "redirect:/produto/visualizar/"+id; 
-		}
+		if(fachada.usuarioLogado != null){
+			Produto produtoCadastrado = fachada.cadastrarProduto(produto);
+			
+			if(produtoCadastrado!=null){
+				int id = (int) produtoCadastrado.getId(); 
+				return "redirect:/produto/visualizar/"+id; 
+			}
 
-		return "redirect:/produto/cadastrar";
+			return "redirect:/produto/cadastrar";
+		}else{
+			return "redirect:/produto/erro";
+		}
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)

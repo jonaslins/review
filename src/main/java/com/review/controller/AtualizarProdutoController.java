@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.review.model.entidade.Produto;
+import com.review.model.entidade.Usuario;
 import com.review.model.fachada.Fachada;
 
 @Controller
@@ -23,14 +24,20 @@ public class AtualizarProdutoController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String atualizarProduto(Model model, @ModelAttribute("produto") Produto produto) {
 		
-		Produto produtoAtualizado = fachada.atualizarProduto(produto);
-		if(produtoAtualizado!=null){
- 
-			int id = (int) produtoAtualizado.getId(); 
-			return "redirect:/produto/visualizar/"+id;
-		}
+		Usuario usuarioLogado = fachada.usuarioLogado;
 		
-		return "redirect:/produto/atualizar/"+produto.getId();
+		if(produto.getUsuario().getId() == usuarioLogado.getId()){
+			Produto produtoAtualizado = fachada.atualizarProduto(produto);
+			if(produtoAtualizado!=null){
+	 
+				int id = (int) produtoAtualizado.getId(); 
+				return "redirect:/produto/visualizar/"+id;
+			}
+			
+			return "redirect:/produto/atualizar/"+produto.getId();
+		}else{
+			return "redirect:/produto/erro";
+		}
 	}
 	
 	

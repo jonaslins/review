@@ -8,7 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Produto {
@@ -24,6 +26,9 @@ public class Produto {
 	@Column
 	private String descricao;
 	
+	@ManyToOne(targetEntity=Usuario.class, fetch=FetchType.LAZY)
+	private Usuario usuario;
+	
 	@OneToMany(targetEntity=Review.class, mappedBy="produto", fetch=FetchType.LAZY)
 	private List<Review> reviewList;
 	
@@ -36,10 +41,19 @@ public class Produto {
 		this.id = id;
 	}
 
-	public Produto(String nome, String descricao) {
+	public Produto(String nome, String descricao, Usuario usuario) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
+		this.usuario = usuario;
+	}
+	
+	public Usuario getUsuario(){
+		return this.usuario;
+	}
+	
+	public void setUsuario(Usuario usuario){
+		this.usuario = usuario;
 	}
 
 	public String getNome() {

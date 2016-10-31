@@ -19,6 +19,9 @@ import com.review.model.entidade.Usuario;
 public class Fachada {
 	
 	@Autowired
+	public Usuario usuarioLogado;
+	
+	@Autowired
 	private ControladorUsuario controladorUsuario;
 	
 	@Autowired
