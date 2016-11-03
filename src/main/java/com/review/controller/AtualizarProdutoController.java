@@ -26,18 +26,23 @@ public class AtualizarProdutoController {
 		
 		Usuario usuarioLogado = fachada.usuarioLogado;
 		
-		if(produto.getUsuario().getId() == usuarioLogado.getId()){
-			Produto produtoAtualizado = fachada.atualizarProduto(produto);
-			if(produtoAtualizado!=null){
-	 
-				int id = (int) produtoAtualizado.getId(); 
-				return "redirect:/produto/visualizar/"+id;
+		if(usuarioLogado != null){
+			if(produto.getUsuario().getId() == usuarioLogado.getId()){
+				Produto produtoAtualizado = fachada.atualizarProduto(produto);
+				if(produtoAtualizado!=null){
+		 
+					int id = (int) produtoAtualizado.getId(); 
+					return "redirect:/produto/visualizar/"+id;
+				}
+				
+				return "redirect:/produto/atualizar/"+produto.getId();
+			}else{
+				return "produto/erro";
 			}
-			
-			return "redirect:/produto/atualizar/"+produto.getId();
 		}else{
-			return "redirect:/produto/erro";
+			return "produto/erro";
 		}
+		
 	}
 	
 	
@@ -45,6 +50,7 @@ public class AtualizarProdutoController {
 	public String visualizarProduto(@PathVariable("produtoId") long produtoId, Model model) {
 		
 		Produto produto = fachada.buscarProduto(new Produto(produtoId));
+		
 		if(produto!=null){
 			model.addAttribute("produto", produto);
 			

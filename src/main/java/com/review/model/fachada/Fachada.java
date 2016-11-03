@@ -18,8 +18,7 @@ import com.review.model.entidade.Usuario;
 @Scope(scopeName = "singleton")
 public class Fachada {
 	
-	@Autowired
-	public Usuario usuarioLogado;
+	public static Usuario usuarioLogado;
 	
 	@Autowired
 	private ControladorUsuario controladorUsuario;
@@ -32,6 +31,10 @@ public class Fachada {
 	
 	public Produto cadastrarProduto(Produto produto){
 		return controladorProduto.cadastrar(produto);
+	}
+	
+	public Usuario cadastrarUsuario(Usuario usuario){
+		return controladorUsuario.cadastrar(usuario);
 	}
 	
 	public Produto buscarProduto(Produto produto){

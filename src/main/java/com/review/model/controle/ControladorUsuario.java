@@ -6,6 +6,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.review.autenticador.ISubsistemaAutenticacaoRedeSocial;
 import com.review.model.cadastro.CadastroUsuario;
+import com.review.model.entidade.Produto;
 import com.review.model.entidade.Usuario;
 
 @Component
@@ -26,6 +27,10 @@ public class ControladorUsuario {
 			}
 		}
 		return usuario; 
+	}
+	
+	public Usuario cadastrar(Usuario usuario) {
+		return cadastroUsuario.cadastrar(usuario);		
 	}
 
 }

@@ -22,6 +22,7 @@ public class CadastrarProdutoController {
 	public String cadastrarProduto(Model model, @ModelAttribute("produto") Produto produto) {
 		
 		if(fachada.usuarioLogado != null){
+			produto.setUsuario(fachada.usuarioLogado);
 			Produto produtoCadastrado = fachada.cadastrarProduto(produto);
 			
 			if(produtoCadastrado!=null){

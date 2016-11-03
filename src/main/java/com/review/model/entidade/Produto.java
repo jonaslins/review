@@ -26,7 +26,7 @@ public class Produto {
 	@Column
 	private String descricao;
 	
-	@ManyToOne(targetEntity=Usuario.class, fetch=FetchType.LAZY)
+	@ManyToOne(targetEntity=Usuario.class)
 	private Usuario usuario;
 	
 	@OneToMany(targetEntity=Review.class, mappedBy="produto", fetch=FetchType.LAZY)

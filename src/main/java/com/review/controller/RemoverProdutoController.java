@@ -18,17 +18,24 @@ public class RemoverProdutoController {
 	@Autowired
 	private Fachada fachada;
 	
-	@RequestMapping(value = "/{produto}", method = RequestMethod.POST)
-	public String removerProduto(@PathVariable("produto") Produto produto, Model model) {
+	@RequestMapping(value = "/{produtoId}", method = RequestMethod.POST)
+	public String removerProduto(@PathVariable("produtoId") int produtoId, Model model) {
 		
 		Usuario usuarioLogado = fachada.usuarioLogado;
 		
-		if(produto.getUsuario().getId() == usuarioLogado.getId()){
-			fachada.removerProduto(new Produto(produto.getId()));
+		if(usuarioLogado != null){
+			Produto produto = fachada.buscarProduto(new Produto(produtoId));
 			
-			return "redirect:/produto/listar";
+			if(produto.getUsuario().getId() == usuarioLogado.getId()){
+				fachada.removerProduto(produto);
+				
+				return "redirect:/produto/listar";
+			}
+			
+			return "produto/erro";
 		}
 		
-		return "redirect:/produto/erro";
+		return "produto/erro";
+		
 	}
 }
