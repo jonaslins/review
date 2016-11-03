@@ -32,7 +32,7 @@ public class CadastrarProdutoController {
 
 			return "redirect:/produto/cadastrar";
 		}else{
-			return "redirect:/produto/erro";
+			return "produto/erro";
 		}
 	}
 	
