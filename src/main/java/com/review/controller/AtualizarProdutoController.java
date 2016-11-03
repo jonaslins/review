@@ -26,8 +26,10 @@ public class AtualizarProdutoController {
 		
 		Usuario usuarioLogado = fachada.usuarioLogado;
 		
+		Produto prod = fachada.buscarProduto(produto);
+		
 		if(usuarioLogado != null){
-			if(produto.getUsuario().getId() == usuarioLogado.getId()){
+			if(prod.getUsuario().getId() == usuarioLogado.getId()){
 				Produto produtoAtualizado = fachada.atualizarProduto(produto);
 				if(produtoAtualizado!=null){
 		 
