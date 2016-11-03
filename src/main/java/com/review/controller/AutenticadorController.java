@@ -36,6 +36,7 @@ public class AutenticadorController {
 	
 	@RequestMapping(value = "/signin", params = "logout")
 	public String logout(Model model, HttpServletRequest request) throws ServletException {
+		fachada.usuarioLogado = null;
 		return "redirect:/";
 	}
 
