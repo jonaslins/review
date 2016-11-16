@@ -6,4 +6,6 @@ O objetivo dessa aplicação é oferecer uma plataforma onde pessoas possam comp
 
 [Projeto 1 - Documento de requisitos](https://github.com/jonaslins/review/blob/master/docs/Projeto1Documento.pdf)
 
-[Projeto 1 - Slide] Arquitetura RUP 
+[Projeto 1 - Apresentação Arquitetura RUP ](https://github.com/jonaslins/review/blob/master/docs/Projeto%20I%20%E2%80%93%20Arquitetura%20RUP.pdf)
+
+[Projeto 2 - Apresentação Arquitetura SOA ](https://github.com/jonaslins/review/blob/master/docs/Projeto%202%20%E2%80%93%20Arquitetura%20SOA.pdf)
